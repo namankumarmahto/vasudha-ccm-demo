@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vasudha — Home</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Georgia,serif;background:#fff;color:#0b2a12}
+    .topbar{padding:18px 28px;display:flex;align-items:center;gap:14px;background:rgba(0,0,0,0.02)}
+    .brand-logo{width:72px;height:72px;border-radius:50%;background:#fff;padding:6px}
+    .brand-title{font-size:28px;color:#143a18;font-weight:700}
+    .hero{height:660px;background-image:url('../src/images/hero.jpg');background-size:cover;background-position:center;position:relative}
+    .hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.18)}
+    .hero-inner{position:relative;z-index:2;max-width:1100px;margin:48px auto;padding:30px;color:#fff}
+    .headline{font-size:48px;font-weight:700;margin-bottom:12px;text-shadow:0 3px 6px rgba(0,0,0,0.4)}
+    .sub{max-width:760px;line-height:1.5;margin-bottom:28px;text-shadow:0 2px 4px rgba(0,0,0,0.35)}
+    .cta{display:inline-block;padding:18px 48px;background:#a7c2a3;color:#073214;border-radius:28px;border:3px solid #0b2a12;font-size:22px;text-decoration:none}
+    @media(max-width:800px){ .headline{font-size:28px} .cta{padding:12px 26px;font-size:18px} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <img src="../src/images/logo.png" alt="logo" class="brand-logo">
+    <div class="brand-title">Carbon Credit Marketplace ~VASUDHA</div>
+  </header>
+
+  <section class="hero" role="banner">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="headline">Sustainable Tomorrow Begins Today</div>
+      <div class="sub">
+        Real Impact, real rewards — sustainability because the future needs us now.
+      </div>
+
+      <!-- IMPORTANT: GET STARTED goes to user.html (login) -->
+      <a id="getStarted" class="cta" href="user.html">GET STARTED</a>
+    </div>
+  </section>
+</body>
+</html>

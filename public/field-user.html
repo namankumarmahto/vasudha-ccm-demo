@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Field User — Vasudha</title>
+
+  <!-- page CSS -->
+  <link rel="stylesheet" href="../src/css/field-user.css" />
+</head>
+<body>
+  <header class="fu-header">
+    <div class="brand-left">
+      <img src="../src/images/logo.png" alt="Vasudha Logo" class="brand-logo">
+      <div class="brand-title">Carbon Credit<br>Marketplace</div>
+      <div class="brand-sub">~VASUDHA</div>
+    </div>
+
+    <div class="header-right">
+      <button class="icon-btn" aria-label="search">🔍</button>
+      <button class="icon-btn" aria-label="profile">👤</button>
+    </div>
+  </header>
+
+  <!-- background hero -->
+  <div class="fu-hero" role="img" aria-label="field background"></div>
+
+  <!-- central card (agreement preview) -->
+  <main class="fu-main">
+    <div class="card-wrap">
+      <h1 class="fu-title">Field User Registry</h1>
+
+      <div class="doc-card">
+        <div class="doc-left">
+          <h2 class="doc-heading">Vasudha Registry - Participant Terms of Use</h2>
+          <div class="doc-scroll">
+            <!-- you can replace the text below with an <iframe> to a PDF or your real content -->
+            <p>
+              1. Please review Terms of Use carefully. This is a demo preview of the agreement.
+              By clicking accept you confirm to abide by program rules and data collection standards.
+            </p>
+            <p>
+              2. The user must provide correct details and accept monitoring conditions for field visits.
+            </p>
+            <p>
+              3. Data submitted will be used for MRV and carbon credit issuance as per policy.
+            </p>
+            <p> ... (put full agreement or PDF link here) ... </p>
+          </div>
+
+          <div class="doc-actions">
+            <label class="agree">
+              <input type="checkbox" id="agreeBox"> I agree to the Vasudha Terms
+            </label>
+            <div class="action-buttons">
+              <button id="cancelBtn" class="btn ghost">Cancel</button>
+              <button id="acceptBtn" class="btn primary">Accept & Continue</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-right">
+          <h3>Quick Info</h3>
+          <ul class="info-list">
+            <li><strong>Role</strong> Field User</li>
+            <li><strong>Next Step</strong> Fill profile & field data</li>
+            <li><strong>Support</strong> support@vasudha.example</li>
+          </ul>
+
+          <h3>Field Photos</h3>
+          <div class="thumb-grid">
+            <img src="../src/images/sample1.jpg" alt="field photo 1">
+            <img src="../src/images/sample2.jpg" alt="field photo 2">
+            <img src="../src/images/sample3.jpg" alt="field photo 3">
+            <img src="../src/images/sample4.jpg" alt="field photo 4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<script>
+  document.getElementById('cancelBtn').addEventListener('click', ()=> {
+    window.history.back();
+  });
+  document.getElementById('acceptBtn').addEventListener('click', ()=> {
+    const c = document.getElementById('agreeBox').checked;
+    if (!c) { alert('Please accept terms to continue'); return; }
+    // demo: go to field profile page (create later)
+    window.location.href = 'marketplace.html'; // or 'field-profile.html' whichever you have
+  });
+</script>
+</body>
+</html>

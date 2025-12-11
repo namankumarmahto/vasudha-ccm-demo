@@ -1,0 +1,65 @@
+/* admin.css — full replacement */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family: Georgia, 'Times New Roman', serif;background:#fff;color:#0b2a12}
+
+/* top header */
+.admin-top{display:flex;align-items:center;gap:14px;padding:18px 28px;border-bottom:1px solid rgba(0,0,0,0.05)}
+.brand{display:flex;align-items:center;gap:12px}
+.admin-logo{width:64px;height:64px;border-radius:50%;background:#fff;padding:6px;box-shadow:0 6px 14px rgba(0,0,0,0.06)}
+.brand-name{font-weight:700;color:#1b4a2a;font-size:18px}
+.page-title{flex:1;text-align:center}
+.page-title h1{font-size:34px;color:#123a12;margin-bottom:4px}
+.subtitle{font-size:14px;color:rgba(6,45,16,0.6)}
+
+/* top actions */
+.top-actions{display:flex;gap:10px}
+.icon-btn{background:#eee;border-radius:22px;border:none;padding:10px 12px;cursor:pointer}
+
+/* layout */
+.admin-wrap{display:flex;gap:20px;padding:24px;max-width:1200px;margin:0 auto}
+
+/* sidebar */
+.admin-sidebar{width:260px;background:#e8f0e0;border-radius:28px;padding:22px;border:3px solid rgba(0,0,0,0.05);box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+.admin-sidebar ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.admin-sidebar li{padding:12px;border-radius:12px;cursor:pointer;color:#123a12;font-size:17px;display:flex;align-items:center;gap:10px}
+.admin-sidebar li.active{background:rgba(16,62,18,0.06);border-left:4px solid rgba(16,62,18,0.12)}
+
+/* main */
+.admin-main{flex:1;display:flex;flex-direction:column;gap:18px}
+
+/* stats row */
+.stats-row{display:flex;gap:18px}
+.stat{flex:1;background:#e6f0df;border-radius:28px;padding:20px;text-align:center}
+.stat .label{font-size:18px;color:#274022}
+.stat .value{font-size:34px;font-weight:700;color:#123a12}
+
+/* cards row */
+.cards-row{display:flex;gap:18px}
+.card{flex:1;background:#e6f0df;border-radius:22px;padding:18px;min-height:80px}
+.card .card-label{font-size:16px;color:#274022}
+.card .card-value{font-size:28px;font-weight:700;margin-top:8px;color:#123a12}
+
+/* graphs row */
+.graphs-row{display:flex;gap:18px}
+.card.large{flex:2;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.card.small{flex:1;border-radius:22px;padding:22px}
+
+/* bar visual */
+.bar-visual{display:flex;align-items:flex-end;gap:18px;height:120px;padding:10px}
+.bar{width:28px;background:#244b22;border-radius:6px;box-shadow:0 4px 6px rgba(0,0,0,0.08);transition:all .25s ease}
+
+/* line graph */
+.line-graph{width:100%;height:120px}
+
+/* bottom row */
+.bottom-row{display:flex;gap:18px}
+.activity-list{list-style:disc;margin-left:18px;color:#123a12}
+.card-body{padding:8px;color:#123a12}
+
+/* responsive */
+@media (max-width:1000px){
+  .admin-wrap{flex-direction:column;padding:12px}
+  .admin-sidebar{width:100%;order:2}
+  .page-title{text-align:left}
+  .stats-row,.cards-row,.graphs-row,.bottom-row{flex-direction:column}
+}

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marketplace — Vasudha</title>
+
+  <link rel="stylesheet" href="../src/css/marketplace.css">
+</head>
+<body>
+
+  <!-- BACKGROUND (full-bleed) -->
+  <div class="mp-bg" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="mp-header" role="banner">
+    <div class="mp-left">
+      <img src="../src/images/logo.png" alt="Vasudha logo" class="logo">
+      <div class="brand">Carbon Credit Marketplace</div>
+    </div>
+
+    <div class="mp-right">
+      <button class="icon-btn" aria-label="notifications" title="Notifications">
+        <img src="../src/images/profile-icon.png" alt="notif" />
+      </button>
+
+      <button id="menuBtn" class="hamburger" aria-label="open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- SLIDE MENU -->
+  <nav id="sideMenu" class="side-menu" aria-hidden="true">
+    <button id="closeMenu" class="menu-close" aria-label="close menu">✕</button>
+    <ul class="side-list">
+      <li><a href="marketplace.html">Marketplace</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="portfolio.html">Carbon Portfolio</a></li>
+      <li><a href="#">Language</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CARDS PANEL (white translucent box overlay) -->
+  <main class="mp-panel" role="main">
+    <div class="user-row">
+      <img src="../src/images/user.png" alt="user" class="user-img">
+      <div class="user-meta">
+        <div class="user-name">Ankit Kumar Gupta</div>
+        <div class="user-role">Field User</div>
+      </div>
+    </div>
+
+    <section class="mp-cards">
+      <a class="mp-card" href="#">
+        <div class="card-icon">📊</div>
+        <div class="card-text"><strong>Status</strong><span>Know Current Status</span></div>
+      </a>
+
+      <a class="mp-card" href="#">
+        <div class="card-icon">📄</div>
+        <div class="card-text"><strong>Certificates</strong><span>View Issued Certificate</span></div>
+      </a>
+
+      <a class="mp-card" href="#">
+        <div class="card-icon">📝</div>
+        <div class="card-text"><strong>Reports</strong><span>Check Submitted Field Reports</span></div>
+      </a>
+
+      <a class="mp-card" href="#">
+        <div class="card-icon">💰</div>
+        <div class="card-text"><strong>Payment</strong><span>Track Payment Status</span></div>
+      </a>
+
+      <a class="mp-card" href="#">
+        <div class="card-icon">🌱</div>
+        <div class="card-text"><strong>Credits</strong><span>Monitor CO₂ Credits</span></div>
+      </a>
+
+      <a class="mp-card" href="#">
+        <div class="card-icon">🔁</div>
+        <div class="card-text"><strong>Update Status</strong><span>Update Current Status</span></div>
+        <div class="badge">NEW</div>
+      </a>
+    </section>
+  </main>
+
+  <!-- small script for menu -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    menuBtn && menuBtn.addEventListener('click', () => {
+      sideMenu.classList.add('open');
+      sideMenu.setAttribute('aria-hidden', 'false');
+    });
+
+    closeMenu && closeMenu.addEventListener('click', () => {
+      sideMenu.classList.remove('open');
+      sideMenu.setAttribute('aria-hidden', 'true');
+    });
+
+    // close when clicking outside the menu panel
+    sideMenu && sideMenu.addEventListener('click', (e) => {
+      if (e.target === sideMenu) {
+        sideMenu.classList.remove('open');
+        sideMenu.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
+</body>
+</html>

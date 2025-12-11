@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verification Panel — Vasudha</title>
+
+  <!-- CSS path from public/ -->
+  <link rel="stylesheet" href="../src/css/verifier.css" />
+</head>
+
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="v-top">
+    <div class="brand">
+      <img src="../src/images/logo.png" class="brand-logo" alt="Vasudha Logo" />
+      <div class="brand-text">
+        <div class="brand-name">CARBON CREDIT<br/>MARKETPLACE</div>
+      </div>
+    </div>
+
+    <h1 class="top-title">Verification Panel</h1>
+
+    <div class="top-actions">
+      <button class="icon-btn" aria-label="search">🔍</button>
+      <button class="icon-btn" aria-label="profile">👤</button>
+    </div>
+  </header>
+
+
+  <div class="v-wrap">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Sidebar navigation">
+      <ul>
+        <li>🏠 Dashboard</li>
+        <li>🕒 Pending Verification</li>
+        <li class="active">✔️ Verified Projects</li>
+        <li>📄 Update Reports</li>
+        <li>📚 Audit History</li>
+        <li>⚙️ Settings</li>
+        <li>📜 Policy &amp; Compliance</li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <!-- TABLE -->
+      <section class="table-card" aria-labelledby="verif-table">
+        <table>
+          <caption id="verif-table" style="text-align:left; font-size:20px; margin-bottom:8px; font-weight:700;">Projects for Verification</caption>
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Project Type</th>
+              <th>Submitted</th>
+              <th>Documents</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>📄 001</td>
+              <td>Mangroves P</td>
+              <td>April 4/2024</td>
+              <td>Submitted</td>
+              <td class="approved">Approved</td>
+            </tr>
+            <tr>
+              <td>📄 002</td>
+              <td>Seagrasses P</td>
+              <td>April 4/2024</td>
+              <td>Submitted</td>
+              <td class="approved">Approved</td>
+            </tr>
+            <tr>
+              <td>📄 003</td>
+              <td>Mangroves P</td>
+              <td>April 4/2024</td>
+              <td>Submitted</td>
+              <td class="approved">Approved</td>
+            </tr>
+            <tr>
+              <td>📄 004</td>
+              <td>Mangroves P</td>
+              <td>April 4/2024</td>
+              <td>Submitted</td>
+              <td class="approved">Approved</td>
+            </tr>
+            <tr>
+              <td>📄 005</td>
+              <td>Mangroves P</td>
+              <td>April 4/2024</td>
+              <td>Submitted</td>
+              <td class="approved">Approved</td>
+            </tr>
+            <tr>
+              <td>📄 006</td>
+              <td>Mangroves P</td>
+              <td>April 4/2024</td>
+              <td>Submitted</td>
+              <td class="approved">Approved</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+
+      <!-- DETAILS -->
+      <section class="details-row">
+
+        <div class="card">
+          <h3>Project Overview</h3>
+          <p>Reforestation Project<br>
+             Project Type – Expansion<br>
+             Location – Odisha</p>
+
+          <h3>Documents</h3>
+          <p>
+            <span>📁 Field Data</span><br>
+            <span>📁 Monitoring Data</span><br>
+            <span>📁 Overview Data</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Project Details</h3>
+          <p>Location – Odisha<br>
+             Area – 1000 hectares<br>
+             No. of Plantation – 1,000,000</p>
+
+          <div class="img-row">
+            <img src="../src/images/sample1.jpg" alt="project photo 1">
+            <img src="../src/images/sample2.jpg" alt="project photo 2">
+          </div>
+        </div>
+
+        <div class="card small">
+          <h3>Monitoring Data</h3>
+          <svg viewBox="0 0 200 80" class="line" aria-hidden="true">
+            <path d="M0,60 C40,40 80,20 120,30 C160,45 200,15 200,15"
+                  stroke="#123a12" stroke-width="3" fill="none"/>
+          </svg>
+
+          <p class="visit">Field Visit<br>4 April / 2025</p>
+          <a href="verification.html" class="req-btn">Request Change</a>
+
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

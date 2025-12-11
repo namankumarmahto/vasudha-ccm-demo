@@ -1,0 +1,63 @@
+/* buyer-detail.css */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family: Georgia, 'Times New Roman', serif;color:#0b2a12}
+
+/* header */
+.bd-header{
+  position:fixed;inset:0 0 auto 0;height:78px;display:flex;align-items:center;
+  justify-content:space-between;padding:10px 22px;background:transparent;z-index:30;
+}
+.bd-header .left{display:flex;align-items:center;gap:14px}
+.logo{width:56px;height:56px;border-radius:50%;background:#fff;padding:6px;box-shadow:0 6px 14px rgba(0,0,0,0.08)}
+.brand-name{font-size:20px;color:#123a12;font-weight:600}
+.center{display:flex;align-items:center;gap:8px}
+.search{width:360px;padding:10px 14px;border-radius:12px;border:none;background:rgba(255,255,255,0.9)}
+.search-btn{padding:10px 12px;border-radius:8px;border:none;background:#e9c700;cursor:pointer}
+.right{display:flex;align-items:center}
+.hamburger{width:46px;height:40px;border-radius:8px;border:none;background:rgba(255,255,255,0.9);cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:6px}
+.hamburger span{height:3px;background:#123a12;border-radius:3px;display:block}
+
+/* slide menu */
+.slide-menu{
+  position:fixed;right:0;top:0;height:100vh;width:320px;background:#2f4f3a;color:#fff;
+  transform:translateX(110%);transition:transform .28s ease;z-index:40;padding:18px;border-left:6px solid rgba(0,0,0,0.08);
+}
+.slide-menu.open{transform:translateX(0)}
+.slide-menu .menu-close{background:transparent;border:none;color:#fff;font-weight:700;font-size:18px;float:right;cursor:pointer}
+.slide-menu ul{list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:12px}
+.slide-menu a{display:block;padding:12px;border-radius:12px;background:rgba(255,255,255,0.14);color:#fff;text-decoration:none}
+
+/* hero full-bleed */
+.hero{
+  height: calc(100vh - 0px);
+  background-image: url('../images/buyer-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  display:flex;align-items:flex-end;z-index:10;
+  position:relative;margin-top:78px;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.2));z-index:1;
+}
+.hero-overlay{
+  position:relative;z-index:2;max-width:920px;padding:80px 44px; color:#fff;
+}
+.hero-title{
+  font-size:44px;line-height:1.0;font-weight:700;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,0.55);
+  max-width:760px;margin-bottom:18px
+}
+.hero-sub{max-width:760px;color:rgba(255,255,255,0.9);margin-bottom:28px;font-size:16px}
+
+/* buttons */
+.hero-actions{display:flex;gap:12px}
+.btn{padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700}
+.btn-primary{background:#3b5bf6;color:#fff}
+.btn-secondary{background:rgba(255,255,255,0.85);color:#123a12}
+
+/* responsive */
+@media (max-width:900px){
+  .search{width:160px}
+  .hero-title{font-size:28px}
+  .hero-overlay{padding:40px 18px}
+  .slide-menu{width:86%;left:auto;right:0}
+}

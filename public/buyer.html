@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Buyer — Vasudha</title>
+  <link rel="stylesheet" href="../src/css/buyer.css" />
+</head>
+<body>
+
+  <!-- header with logo and title -->
+  <header class="buyer-top">
+    <img src="../src/images/logo.png" alt="Vasudha Logo" class="logo">
+    <h1 class="page-title">Buyer's<br/>Information</h1>
+  </header>
+
+  <!-- full bleed background -->
+  <div class="bg" aria-hidden="true"></div>
+
+  <!-- content card -->
+  <main class="center-area">
+    <div class="card">
+      <h2>Buyer's Details</h2>
+
+      <form id="buyerForm" class="buyer-form">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Full name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="you@example.com" required>
+
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="+91 98765 43210">
+
+        <label>Location</label>
+        <input type="text" name="location" placeholder="City, State / Country">
+
+        <div class="actions">
+          <button type="submit" class="btn-next">Next →</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // demo: submit redirects to marketplace page (adjust as needed)
+    document.getElementById('buyerForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      // Optionally validate or save to local storage here
+      window.location.href = 'buyer-detail.html'; // change if needed
+    });
+  </script>
+</body>
+</html>

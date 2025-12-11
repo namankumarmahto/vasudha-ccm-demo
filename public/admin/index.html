@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard — Vasudha</title>
+
+  <!-- IMPORTANT: path must point to src/css/admin.css from public/admin/index.html -->
+  <link rel="stylesheet" href="../../src/css/admin.css" />
+</head>
+<body>
+
+  <header class="admin-top">
+    <div class="brand">
+      <img src="../../src/images/logo.png" class="admin-logo" alt="Logo" />
+      <div class="brand-text">
+        <div class="brand-name">CARBON CREDIT<br/>MARKETPLACE</div>
+      </div>
+    </div>
+
+    <div class="page-title">
+      <h1>Admin Dashboard</h1>
+      <div class="subtitle">Overview &amp; Control panel</div>
+    </div>
+
+    <div class="top-actions">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">👤</button>
+    </div>
+  </header>
+
+  <div class="admin-wrap">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" role="navigation" aria-label="Main navigation">
+      <ul>
+        <li class="active">📊 Dashboard</li>
+        <li>🗂️ Project Work</li>
+        <li>📝 Review Work</li>
+        <li>🔎 Verification &amp; Auditing</li>
+        <li>🪪 Credit Issuance</li>
+        <li>🤝 Community Management</li>
+        <li>📈 Analytics &amp; Reporting</li>
+        <li>⚙️ System Administration</li>
+        <li>📜 Policy &amp; Compliance</li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+      <!-- TOP STATS -->
+      <section class="stats-row">
+        <div class="stat">
+          <div class="label">Total Project</div>
+          <div class="value">124</div>
+        </div>
+
+        <div class="stat">
+          <div class="label">Pending</div>
+          <div class="value">18</div>
+        </div>
+
+        <div class="stat">
+          <div class="label">Credits</div>
+          <div class="value">152.300</div>
+        </div>
+      </section>
+
+      <!-- SECOND ROW -->
+      <section class="cards-row">
+        <div class="card">
+          <div class="card-label">Credits Generated</div>
+          <div class="card-value">152.300</div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Credits Sold</div>
+          <div class="card-value">98.400</div>
+        </div>
+      </section>
+
+      <!-- GRAPHS -->
+      <section class="graphs-row">
+
+        <!-- Projected Score (bar chart made from DIV bars) -->
+        <div class="card large">
+          <h3 class="card-heading">Projected Score</h3>
+
+          <div class="bar-visual" aria-hidden="true">
+            <!-- heights set as percentages; increase values for visible bars -->
+            <div class="bar" style="height:12%"></div>
+            <div class="bar" style="height:20%"></div>
+            <div class="bar" style="height:32%"></div>
+            <div class="bar" style="height:44%"></div>
+            <div class="bar" style="height:56%"></div>
+            <div class="bar" style="height:72%"></div>
+            <div class="bar" style="height:92%"></div>
+          </div>
+        </div>
+
+        <!-- Line chart (SVG) -->
+        <div class="card small">
+          <div class="card-heading">Carbon Credit Generation</div>
+
+          <svg class="line-graph" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,60 C40,40 80,20 120,30 C160,46 200,10 200,10"
+                  stroke="#123a12" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+      </section>
+
+      <!-- bottom row -->
+      <section class="bottom-row">
+        <div class="card">
+          <div class="card-heading">Recent Activities</div>
+          <ul class="activity-list">
+            <li>New User Registered</li>
+            <li>Project 174 failed Verification</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-heading">Alerts</div>
+          <div class="card-body">None</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

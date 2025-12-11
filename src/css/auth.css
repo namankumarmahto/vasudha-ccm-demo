@@ -1,0 +1,93 @@
+/* auth.css - central styles used by login + register pages */
+
+/* reset & base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: Georgia, 'Times New Roman', serif; color: #0b2a12; background: #fff; }
+
+/* top brand */
+.top-brand {
+  background: rgba(255,255,255,0.95);
+  border-bottom: 3px solid rgba(0,0,0,0.06);
+  padding: 10px 18px;
+}
+.header-inner { max-width: 1200px; margin: 0 auto; display:flex; gap:18px; align-items:center; padding:4px 6px; }
+.brand-logo { width:86px; height:86px; border-radius:50%; background:white; padding:6px; display:inline-block; }
+.brand-title { font-size:36px; color:#1b4a2a; line-height:1; font-weight:700; display:inline-block; margin-left:8px; }
+.brand-sub { font-size:16px; color:#274022; margin-left:8px; }
+
+/* full page background (for login/register pages) */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url('../images/login-bg.jpg'); /* default login background */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.65);
+  z-index: 0;
+}
+
+/* central container */
+.center-wrap {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 120px);
+  padding: 30px 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* card basics */
+.auth-card, .register-card {
+  width: 920px;
+  max-width: 94%;
+  background: rgba(255,255,255,0.98);
+  border-radius: 30px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(3,10,7,0.3);
+  border: 4px solid rgba(0,0,0,0.06);
+}
+
+/* headings */
+.auth-heading { font-family: Georgia, serif; font-size:36px; text-align:center; margin-bottom:12px; color:#0b2a12; }
+.register-title { font-family: Georgia, serif; font-size:36px; text-align:center; margin-bottom:18px; color:#0b2a12; }
+
+/* inputs */
+.input.icon { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+.input.icon .ic { font-size:20px; width:34px; text-align:center; }
+.input.icon input, .auth-form input, .register-form input, .register-form select {
+  width:100%;
+  padding: 14px 18px;
+  border-radius: 18px;
+  border: none;
+  background: #dfeadc;
+  color: #123a12;
+  font-size: 18px;
+  outline:none;
+  box-shadow: inset 0 2px 0 rgba(0,0,0,0.06);
+}
+
+/* select style - make it look like input */
+.register-form select { appearance: none; -webkit-appearance: none; }
+
+/* actions */
+.auth-actions { margin-top: 18px; display:flex; justify-content:center; }
+.btn-login { background:#5a7050; color:#fff; padding: 14px 34px; border-radius: 28px; border:none; font-size:20px; cursor:pointer; box-shadow: 0 6px 0 rgba(0,0,0,0.12); }
+
+.submit-btn { background: linear-gradient(#d4b45a,#caa94a); color: #0b2a12; padding: 12px 34px; border-radius: 22px; border: none; font-size: 18px; cursor:pointer; box-shadow: 0 6px 0 rgba(0,0,0,0.12); }
+
+/* small layout helpers for register page */
+.two-inputs { display:flex; gap:18px; }
+.two-inputs .field { flex:1; display:flex; flex-direction:column; }
+.field.full .phone-wrap { display:flex; align-items:center; gap:12px; padding: 0 8px; background:#dfeadc; border-radius:12px; }
+.phone-wrap .flag { margin-right:10px; }
+
+/* extras */
+.auth-links { margin-top:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.links-row a { color:#1b4a2a; text-decoration: none; font-size:14px; }
+
+/* responsive */
+@media (max-width:980px){
+  .auth-card, .register-card { width: 94%; padding:20px; border-radius:20px; }
+  .two-inputs { flex-direction:column; }
+}

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Verification — Vasudha</title>
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Georgia, serif; background:#fff; color:#07250f; }
+
+    .wrapper {
+      max-width:1200px;
+      margin:20px auto;
+      padding:20px;
+    }
+
+    /* Top Header */
+    .header {
+      display:flex;
+      align-items:center;
+      margin-bottom:25px;
+      gap:15px;
+    }
+    .header img {
+      width:75px; height:75px; border-radius:50%;
+    }
+    .title {
+      font-size:26px;
+      font-weight:700;
+      color:#1a4b28;
+    }
+
+    /* Layout */
+    .layout {
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:35px;
+    }
+
+    /* LEFT CARD */
+    .left-box {
+      background:#e9f3e7;
+      padding:25px;
+      border-radius:20px;
+    }
+
+    .tag-box {
+      background:#cfe2cd;
+      padding:18px;
+      border-radius:18px;
+      margin-bottom:20px;
+    }
+
+    .row {
+      display:flex;
+      gap:12px;
+      margin-bottom:12px;
+    }
+
+    .pill {
+      flex:1;
+      padding:16px;
+      background:#4f6a4e;
+      color:#fff;
+      border-radius:18px;
+      font-size:20px;
+      font-weight:600;
+      text-align:center;
+    }
+
+    .label {
+      background:#35563f !important;
+    }
+
+    /* Checklist */
+    .check-title {
+      font-size:26px;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+    ul { list-style:none; margin-top:10px; }
+    li {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:10px;
+      font-size:20px;
+    }
+    .tick {
+      width:26px; height:26px;
+      background:#2fae2a;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      font-weight:700;
+    }
+
+    .btn-issue {
+      display:inline-block;
+      padding:12px 28px;
+      background:#2f53ff;
+      color:#fff;
+      font-size:20px;
+      border-radius:12px;
+      margin-top:15px;
+      text-decoration:none;
+    }
+
+    /* RIGHT SIDE */
+    .right-box h2 {
+      font-size:26px;
+      margin-bottom:12px;
+      font-weight:700;
+    }
+
+    .photos {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+      margin-bottom:15px;
+    }
+
+    .photos img {
+      width:100%;
+      height:130px;
+      object-fit:cover;
+      border-radius:15px;
+    }
+
+    .comment-title {
+      font-size:22px;
+      font-weight:700;
+      margin-bottom:5px;
+    }
+
+    .browse-link {
+      margin-top:18px;
+      font-size:20px;
+    }
+
+    @media(max-width:992px){
+      .layout { grid-template-columns:1fr; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="../src/images/logo.png" alt="logo">
+    <div class="title">CARBON CREDIT MARKETPLACE</div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="layout">
+
+    <!-- LEFT CARD -->
+    <div class="left-box">
+
+      <h2 style="font-size:32px; margin-bottom:18px;">Verification</h2>
+
+      <div class="tag-box">
+        <div class="row">
+          <div class="pill label">Project</div>
+          <div class="pill">Mangrove Plantation</div>
+        </div>
+        <div class="row">
+          <div class="pill label">Builder</div>
+          <div class="pill">Chilika Forest Reserve</div>
+        </div>
+      </div>
+
+      <div class="check-title">Verification Checklist</div>
+
+      <ul>
+        <li><div class="tick">✓</div> Project Document View</li>
+        <li><div class="tick">✓</div> Baseline and monitoring data</li>
+        <li><div class="tick">✓</div> Site visit and audit complete</li>
+        <li><div class="tick">✓</div> Emission reduction Verified</li>
+        <li><div class="tick">✓</div> Final verification report uploaded</li>
+      </ul>
+
+      <a href="#" class="btn-issue">Issue Credit</a>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-box">
+
+      <h2>Field Photos</h2>
+      <div class="photos">
+        <img src="../src/images/sample1.jpg" alt="field1">
+        <img src="../src/images/sample2.jpg" alt="field2">
+        <img src="../src/images/sample3.jpg" alt="field3">
+        <img src="../src/images/sample4.jpg" alt="field4">
+      </div>
+
+      <div class="comment-title">Comments</div>
+      <p style="font-size:20px;">
+        Verification completed.<br>
+        Recommended for Credit Issuance.
+      </p>
+
+      <div class="browse-link">
+        <a href="verifier.html" style="font-weight:600; text-decoration:none; color:#07250f;">Browse More</a>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Buyer Explorer — Vasudha</title>
+
+<style>
+:root{
+  --page-bg: #111213;
+  --panel:#e9f1e6;
+  --muted:#d9ead9;
+  --accent:#5a7a52;
+  --accent-2:#7c9a6f;
+  --card-border:#d0d8d0;
+  --white:#ffffff;
+  --dark:#0f2314;
+  --soft-blue:#bfc8ff;
+}
+
+/* base */
+*{box-sizing:border-box}
+body{margin:0;font-family: Georgia, 'Times New Roman', serif;background:var(--page-bg);color:var(--dark);-webkit-font-smoothing:antialiased}
+.container{max-width:1180px;margin:26px auto;padding:0 12px}
+
+/* top header row */
+.header-row{display:flex;align-items:center;gap:18px;padding:14px 20px;border-radius:10px;background:var(--panel);box-shadow:0 6px 20px rgba(0,0,0,0.12);position:relative}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:56px;height:56px;border-radius:50%;background:#fff;padding:6px}
+.brand h1{font-size:26px;margin:0;letter-spacing:1px}
+.search-area{flex:1;display:flex;align-items:center;gap:12px;justify-content:center}
+.search-area input{width:520px;max-width:60%;padding:12px 14px;border-radius:12px;border:2px solid var(--card-border);font-size:16px}
+.search-btn{padding:10px 14px;border-radius:10px;border:2px solid var(--card-border);background:#efeaea;cursor:pointer}
+.sort-select{margin-left:12px;padding:10px 12px;border-radius:10px;border:2px solid var(--card-border)}
+.hamburger-btn{margin-left:12px;padding:8px 10px;border-radius:12px;background:var(--white);cursor:pointer;border:2px solid rgba(0,0,0,0.08);}
+
+/* layout columns */
+.layout{display:grid;grid-template-columns:260px 1fr 260px;gap:20px;margin-top:20px}
+.left-col{display:flex;flex-direction:column;gap:18px}
+.right-col{display:flex;justify-content:flex-end}
+.center-col{background:var(--panel);padding:18px;border-radius:12px;}
+
+/* left panels (stacked) */
+.left-panel{background:var(--muted);padding:16px;border-radius:18px;border:2px solid var(--card-border)}
+.left-panel .panel-row{display:flex;flex-direction:column;gap:12px}
+.filter-toggle{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;background:var(--accent-2);color:#fff;cursor:pointer;font-weight:600;box-shadow:inset 0 2px 0 rgba(0,0,0,0.06)}
+.filter-content{background:transparent;padding:10px;margin-top:6px;display:none;flex-direction:column;gap:8px}
+.check-item{display:flex;align-items:center;gap:10px;background:#fff;padding:8px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)}
+.clear-filter{margin-top:8px;padding:12px;border-radius:10px;background:transparent;border:2px solid var(--card-border);font-weight:700;cursor:pointer}
+
+/* contact box (left) */
+.contact-box{background:#d6e1d6;border-radius:18px;padding:18px;border:2px solid var(--card-border);display:flex;flex-direction:column;gap:12px;align-items:center}
+.contact-box .cta{background:#bfc8ff;padding:12px;border-radius:12px;width:80%;text-align:center}
+.contact-widget{background:#e6eef1;padding:12px;border-radius:12px;width:82%}
+
+/* center grid */
+.center-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px;align-items:start}
+.card{background:#fff;border-radius:10px;border:2px solid var(--card-border);overflow:hidden;display:flex;flex-direction:column}
+.card img{width:100%;height:150px;object-fit:cover;border-bottom:1px solid #eee}
+.card-body{padding:12px;display:flex;flex-direction:column;gap:8px}
+.card .price{font-size:20px;font-weight:700;color:var(--accent)}
+.card .desc{font-size:13px;color:#333;line-height:1.3;min-height:56px}
+.card-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{background:#f0f0f0;padding:6px 8px;border-radius:8px;font-size:12px}
+
+/* view more */
+.view-more{margin-top:14px;padding:16px;border-radius:12px;background:var(--soft-blue);text-align:center;font-size:20px}
+
+/* right side menu (hidden panel) */
+.slide-overlay{position:fixed;right:18px;top:78px;width:260px;background:#26382a;color:#fff;padding:16px;border-radius:14px;border:3px solid rgba(0,0,0,0.2);display:none;z-index:80}
+.menu-item{background:var(--muted);padding:10px;border-radius:10px;margin-bottom:10px;color:var(--dark);display:flex;align-items:center;gap:10px}
+
+/* small responsive tweaks */
+@media(max-width:1120px){
+  .layout{grid-template-columns:1fr;padding-bottom:40px}
+  .search-area input{width:100%}
+  .center-grid{grid-template-columns:repeat(2,1fr)}
+  .right-col{display:none}
+}
+@media(max-width:640px){
+  .center-grid{grid-template-columns:1fr}
+  .search-area input{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- top header -->
+  <div class="header-row">
+    <div class="brand">
+      <img src="../src/images/logo.png" alt="logo">
+      <h1>Vasudha CCM</h1>
+    </div>
+
+    <div class="search-area">
+      <input id="searchInput" placeholder="Search For Project">
+      <button class="search-btn" id="searchBtn">🔍</button>
+      <select id="sortSel" class="sort-select">
+        <option value="popular">Sort Prices</option>
+        <option value="low">Low → High</option>
+        <option value="high">High → Low</option>
+      </select>
+
+      <div class="hamburger-btn" id="hamburger">☰</div>
+    </div>
+  </div>
+
+  <!-- main layout -->
+  <div class="layout">
+
+    <!-- LEFT column -->
+    <aside class="left-col">
+
+      <!-- stacked filters -->
+      <div class="left-panel">
+        <div class="panel-row">
+
+          <div>
+            <div class="filter-toggle" data-target="statesBox">States <span id="statesCount">0 Selected ▾</span></div>
+            <div class="filter-content" id="statesBox">
+              <label class="check-item"><input type="checkbox" value="Jammu & Kashmir"> Jammu & Kashmir</label>
+              <label class="check-item"><input type="checkbox" value="Himachal Pradesh"> Himachal Pradesh</label>
+              <label class="check-item"><input type="checkbox" value="Odisha"> Odisha</label>
+              <label class="check-item"><input type="checkbox" value="Jharkhand"> Jharkhand</label>
+              <label class="check-item"><input type="checkbox" value="Bihar"> Bihar</label>
+              <label class="check-item"><input type="checkbox" value="Kerala"> Kerala</label>
+            </div>
+          </div>
+
+          <div>
+            <div class="filter-toggle" data-target="catBox">Category <span id="catCount">0 Selected ▾</span></div>
+            <div class="filter-content" id="catBox">
+              <label class="check-item"><input type="checkbox" value="Blue Carbon"> Blue Carbon</label>
+              <label class="check-item"><input type="checkbox" value="Forestry"> Forestry</label>
+              <label class="check-item"><input type="checkbox" value="Agriculture"> Agriculture</label>
+              <label class="check-item"><input type="checkbox" value="Other"> Other</label>
+            </div>
+          </div>
+
+          <div>
+            <div class="filter-toggle" data-target="yearBox">Year <span id="yearCount">0 Selected ▾</span></div>
+            <div class="filter-content" id="yearBox">
+              <label class="check-item"><input type="checkbox" value="2000"> 2000</label>
+              <label class="check-item"><input type="checkbox" value="2001"> 2001</label>
+              <label class="check-item"><input type="checkbox" value="2002"> 2002</label>
+              <label class="check-item"><input type="checkbox" value="2003"> 2003</label>
+            </div>
+          </div>
+
+          <button class="clear-filter" id="clearFilters">CLEAR FILTER</button>
+        </div>
+      </div>
+
+      <!-- contact widget -->
+      <div class="contact-box">
+        <div class="cta">SCHEDULE A CALL</div>
+        <div style="display:flex;gap:8px;width:100%;align-items:center;justify-content:center">
+          <div class="cta" style="width:46%">CHAT WITH US</div>
+          <div style="width:10%"></div>
+        </div>
+
+        <div class="contact-widget">
+          <input placeholder="Name" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:8px">
+          <input placeholder="Email" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:8px">
+          <textarea placeholder="Query" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc"></textarea>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- CENTER column -->
+    <main class="center-col">
+
+      <div class="center-grid" id="productGrid">
+        <!-- product cards will be injected by JS -->
+      </div>
+
+      <div class="view-more" id="viewMore">View More</div>
+    </main>
+
+    <!-- RIGHT column (hamburger slide preview) -->
+    <aside class="right-col">
+      <!-- static mock of slide area; real slide shows via JS -->
+      <div style="width:260px;height:1px"></div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- slide-over menu -->
+<div class="slide-overlay" id="slideMenu" aria-hidden="true">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+    <img src="../src/images/logo.png" alt="logo" style="width:44px;height:44px;border-radius:50%;background:#fff;padding:6px">
+    <div style="font-weight:700">Menu</div>
+  </div>
+  <div class="menu-item">🏬 Marketplace</div>
+  <div class="menu-item">👤 Profile</div>
+  <div class="menu-item">🗂 Carbon Portfolio</div>
+  <div class="menu-item">🌐 Language</div>
+  <div style="text-align:right;margin-top:8px"><button id="closeMenu" style="padding:8px 12px;border-radius:8px">Close</button></div>
+</div>
+
+<script>
+/* -------- sample product data -------- */
+const products = [
+  {id:1,title:'Mangrove Restoration',price:'₹1000',img:'../src/images/card-01.jpg',tags:['Odisha','Blue Carbon','2024']},
+  {id:2,title:'Seagrass Protection',price:'₹800',img:'../src/images/card-02.jpg',tags:['Odisha','Blue Carbon','2024']},
+  {id:3,title:'Community Forest',price:'₹500',img:'../src/images/card-03.jpg',tags:['Odisha','Blue Carbon','2024']},
+  {id:4,title:'Snake Plant Initiative',price:'₹700',img:'../src/images/card-04.jpg',tags:['Forestry','2024']},
+  {id:5,title:'Bamboo Carbon',price:'₹750',img:'../src/images/card-05.jpg',tags:['Forestry','2024']},
+  {id:6,title:'Agrocarbon Project',price:'₹850',img:'../src/images/card-06.jpg',tags:['Agriculture','2024']}
+];
+
+const grid = document.getElementById('productGrid');
+
+function buildCard(p){
+  const wrap = document.createElement('article');
+  wrap.className = 'card';
+  wrap.innerHTML = `
+    <img src="${p.img}" alt="${p.title}">
+    <div class="card-body">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:700">${p.title}</div>
+        <div class="price">${p.price}</div>
+      </div>
+      <div class="desc">A short description about the project. This text is a concise summary to help buyers quickly understand the project's purpose and benefits.</div>
+      <div class="card-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+  `;
+  return wrap;
+}
+
+function render(list){
+  grid.innerHTML = '';
+  // we want one left column box (contact) occupying first cell visually; emulate by inserting a placeholder first
+  // but here the left contact is outside grid; so just render all cards (3 columns)
+  list.forEach(p => grid.appendChild(buildCard(p)));
+}
+render(products);
+
+/* ---------- toggles for filter panels ---------- */
+document.querySelectorAll('.filter-toggle').forEach(btn=>{
+  btn.addEventListener('click', (e)=>{
+    const target = btn.getAttribute('data-target');
+    const box = document.getElementById(target);
+    if(!box) return;
+    box.style.display = (box.style.display === 'flex') ? 'none' : 'flex';
+    updateCounts();
+  });
+});
+
+/* update counts for selected */
+function updateCounts(){
+  const states = Array.from(document.querySelectorAll('#statesBox input[type="checkbox"]')).filter(i=>i.checked).length;
+  const cats = Array.from(document.querySelectorAll('#catBox input[type="checkbox"]')).filter(i=>i.checked).length;
+  const yrs = Array.from(document.querySelectorAll('#yearBox input[type="checkbox"]')).filter(i=>i.checked).length;
+  document.getElementById('statesCount').textContent = (states) ? `${states} Selected ▾` : '0 Selected ▾';
+  document.getElementById('catCount').textContent = (cats) ? `${cats} Selected ▾` : '0 Selected ▾';
+  document.getElementById('yearCount').textContent = (yrs) ? `${yrs} Selected ▾` : '0 Selected ▾';
+}
+
+/* when any checkbox changes, filter the grid */
+document.querySelectorAll('.left-panel input[type="checkbox"]').forEach(cb=>{
+  cb.addEventListener('change', ()=>{
+    applyFilters();
+    updateCounts();
+  });
+});
+
+function applyFilters(){
+  // read selected values
+  const states = Array.from(document.querySelectorAll('#statesBox input:checked')).map(i=>i.value);
+  const cats = Array.from(document.querySelectorAll('#catBox input:checked')).map(i=>i.value.toLowerCase());
+  const yrs = Array.from(document.querySelectorAll('#yearBox input:checked')).map(i=>i.value);
+
+  let out = products.filter(p=>{
+    let okState = true, okCat=true, okYear=true;
+
+    if(states.length) okState = states.some(s=>p.tags.join(' ').includes(s));
+    if(cats.length) okCat = cats.some(c=>p.tags.join(' ').toLowerCase().includes(c));
+    if(yrs.length) okYear = yrs.some(y=>p.tags.includes(y));
+    return okState && okCat && okYear;
+  });
+
+  render(out);
+}
+
+/* clear filters */
+document.getElementById('clearFilters').addEventListener('click', ()=>{
+  document.querySelectorAll('.left-panel input[type="checkbox"]').forEach(cb=>cb.checked=false);
+  updateCounts();
+  render(products);
+});
+
+/* search */
+document.getElementById('searchBtn').addEventListener('click', ()=>{
+  const q = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+  if(!q){ render(products); return; }
+  render(products.filter(p => p.title.toLowerCase().includes(q) || p.tags.join(' ').toLowerCase().includes(q)));
+});
+
+/* sort */
+document.getElementById('sortSel').addEventListener('change', function(){
+  const v = this.value;
+  const copy = [...products];
+  if(v === 'low') copy.sort((a,b)=>parseInt(a.price.replace(/\D/g,'')) - parseInt(b.price.replace(/\D/g,'')));
+  if(v === 'high') copy.sort((a,b)=>parseInt(b.price.replace(/\D/g,'')) - parseInt(a.price.replace(/\D/g,'')));
+  render(copy);
+});
+
+/* slide-over menu open/close */
+const hamburger = document.getElementById('hamburger');
+const slide = document.getElementById('slideMenu');
+const closeMenu = document.getElementById('closeMenu');
+
+hamburger.addEventListener('click', ()=>{ slide.style.display='block'; });
+closeMenu && closeMenu.addEventListener('click', ()=>{ slide.style.display='none'; });
+
+/* view more */
+document.getElementById('viewMore').addEventListener('click', ()=>{ alert('Load more products (demo)'); });
+
+/* initial counts closed by default */
+document.getElementById('statesBox').style.display = 'none';
+document.getElementById('catBox').style.display = 'none';
+document.getElementById('yearBox').style.display = 'none';
+updateCounts();
+
+</script>
+</body>
+</html>

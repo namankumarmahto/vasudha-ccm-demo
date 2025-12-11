@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Login — Vasudha</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Georgia,serif;color:#0b2a12}
+    .page-bg{position:fixed;inset:0;background-image:url('../src/images/login-bg.jpg');background-size:cover;background-position:center;filter:brightness(0.62);z-index:0}
+    .top-brand{position:relative;z-index:2;padding:14px 20px;display:flex;align-items:center;gap:12px}
+    .brand-logo{width:76px;height:76px;border-radius:50%;background:#fff;padding:6px}
+    .center-wrap{position:relative;z-index:2;min-height:calc(100vh - 120px);display:flex;align-items:center;justify-content:center;padding:30px}
+    .auth-card{width:760px;max-width:94%;background:rgba(255,255,255,0.98);border-radius:26px;padding:28px;box-shadow:0 12px 30px rgba(3,10,7,0.25);border:4px solid rgba(0,0,0,0.06)}
+    .auth-title{text-align:center;font-family:Georgia,serif;font-size:40px;margin-bottom:18px;color:#0b2a12}
+    label{display:block;margin-bottom:8px;font-weight:700}
+    .input-box{display:flex;align-items:center;gap:12px;background:#e9f0df;padding:12px;border-radius:18px;margin-bottom:14px}
+    .input-box .icon{width:36px;text-align:center}
+    input,select{border:none;background:transparent;outline:none;width:100%;font-size:16px;color:#123a12;padding:6px}
+    .login-btn{display:block;margin:12px auto 0;background:#355a35;color:#fff;padding:12px 36px;border-radius:24px;border:none;font-size:18px;cursor:pointer}
+    .links{margin-top:12px;text-align:center}
+    .links a{color:#1b4a2a;text-decoration:none;margin:0 8px}
+    @media(max-width:700px){ .auth-card{padding:18px} .auth-title{font-size:28px} }
+  </style>
+</head>
+<body>
+
+  <header class="top-brand">
+    <img src="../src/images/logo.png" alt="logo" class="brand-logo">
+    <div>
+      <div style="font-size:22px;font-weight:700;color:#133317">Carbon Credit Marketplace</div>
+      <div style="font-size:13px;color:#274022">~VASUDHA</div>
+    </div>
+  </header>
+
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <main class="center-wrap">
+    <div class="auth-card" role="main" aria-labelledby="authHeading">
+      <h1 id="authHeading" class="auth-title">User Log in</h1>
+
+      <form id="loginForm" novalidate>
+        <label for="username">Username *</label>
+        <div class="input-box"><span class="icon">👤</span><input id="username" name="username" type="text" placeholder="Enter username" required></div>
+
+        <label for="password">Password *</label>
+        <div class="input-box"><span class="icon">🔒</span><input id="password" name="password" type="password" placeholder="Enter Password" required></div>
+
+        <label for="role">Select Role *</label>
+        <div class="input-box"><span class="icon">⚙️</span>
+          <select id="role" name="role" required>
+            <option value="">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="field_user">Field User</option>
+            <option value="verifier">Verifier</option>
+            <option value="buyer">Buyer</option>
+          </select>
+        </div>
+
+        <button class="login-btn" type="submit">Log in</button>
+
+        <div class="links">
+          <label style="display:block;margin-bottom:8px"><input type="checkbox" style="transform:scale(1.05);margin-right:8px"> Remember Me</label>
+          <div>
+            <a href="user-register.html">Not a member yet? Register now</a> |
+            <a href="#">Forgot Password?</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      const form = document.getElementById('loginForm');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const u = (document.getElementById('username').value || '').trim();
+        const p = (document.getElementById('password').value || '').trim();
+        const r = (document.getElementById('role').value || '').trim();
+
+        if(!u || !p){ alert('Please enter username and password'); return; }
+        if(!r){ alert('Please select a role'); return; }
+
+        // Redirect by role — adjust destination files if different
+        if(r === 'admin'){ window.location.href = 'admin/index.html'; return; }
+        if(r === 'verifier'){ window.location.href = 'verifier.html'; return; }
+        if(r === 'buyer'){ window.location.href = 'buyer.html'; return; }
+        if(r === 'field_user'){ window.location.href = 'user.html'; return; }
+
+        // fallback
+        window.location.href = 'user.html';
+      });
+    })();
+  </script>
+</body>
+</html>
