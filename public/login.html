@@ -5,25 +5,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Login — Vasudha</title>
   <style>
-    body{font-family:Georgia,serif;background:#f6fbf6;color:#063014;margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
-    .card{width:760px;max-width:96%;background:#fff;border-radius:16px;padding:28px;box-shadow:0 12px 36px rgba(0,0,0,0.06)}
-    input{padding:12px 14px;border-radius:12px;border:1px solid #e6efe6;background:#f4faf4;font-size:15px;width:100%;box-sizing:border-box}
-    .btn{background:linear-gradient(#2f6b3a,#244f2d);color:#fff;padding:12px 18px;border-radius:12px;border:none;font-weight:700;cursor:pointer}
+    body{font-family:Georgia,serif;background:#f4faf4;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
+    .card{background:#fff;padding:26px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06);width:420px;max-width:92%}
+    input{width:100%;padding:10px;border-radius:8px;border:1px solid #e6efe6;background:#fbfffb;margin-bottom:12px}
+    .btn{background:#2f6b3a;color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:700;width:100%}
+    a{color:#2f6b3a}
   </style>
 </head>
 <body>
-  <main class="card" role="main">
-    <h2>Sign in</h2>
-    <form id="loginForm" autocomplete="on" novalidate>
+  <main class="card">
+    <h2 style="margin:0 0 12px 0">Login</h2>
+    <form id="loginForm" novalidate>
       <label>Email</label>
-      <input id="username" type="email" required />
+      <input id="username" type="email" placeholder="you@example.com" required />
       <label>Password</label>
-      <input id="password" type="password" required />
-      <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
-        <a href="/user-register.html">Create account</a>
-        <button type="submit" class="btn">Sign in</button>
-      </div>
+      <input id="password" type="password" placeholder="Enter password" required />
+      <button type="submit" class="btn">Log in</button>
     </form>
+    <p style="margin-top:12px;font-size:14px">Don't have an account? <a href="/user-register.html">Register</a></p>
   </main>
 
   <script type="module" src="/js/auth.js"></script>
