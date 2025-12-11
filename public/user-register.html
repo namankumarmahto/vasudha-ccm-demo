@@ -1,37 +1,55 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Register — Vasudha</title>
-<style>
-  body{font-family:Georgia,serif;background:#f3f8f3;margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh}
-  .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.06);width:920px;max-width:96%}
-  input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6efe6;background:#f6faf6;box-sizing:border-box}
-  .btn{background:#2f6b3a;color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
-</style>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Register — Vasudha</title>
+
+  <style>
+    body{font-family:Georgia,serif;background:#f3f8f3;margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh}
+    .card{background:#fff;padding:24px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.06);width:900px;max-width:95%}
+    input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #dce5dc;background:#f7faf7;margin-top:4px;margin-bottom:10px}
+    .btn{background:#226d3d;color:#fff;padding:10px 16px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+  </style>
 </head>
+
 <body>
   <main class="card">
-    <h1>Create account</h1>
-    <form id="registerForm" autocomplete="on" novalidate>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-        <div><label>First name *</label><input id="first" required></div>
-        <div><label>Last name</label><input id="last"></div>
-        <div><label>Email *</label><input id="email" type="email" required></div>
-        <div><label>Username</label><input id="usernameReg"></div>
-        <div><label>Password *</label><input id="password1" type="password" required></div>
-        <div><label>Phone</label><input id="phone"></div>
-        <div style="grid-column:1/-1"><label>Account type</label>
-          <select id="accountType"><option value="buyer">Buyer</option><option value="project_owner">Project Owner</option><option value="verifier">Verifier</option><option value="field_user">Field User</option></select>
-        </div>
-        <div style="grid-column:1/-1">
-          <label style="display:flex;align-items:center;gap:8px"><input id="agree" type="checkbox" required> I agree to <a href="/terms.html">Terms & Conditions</a></label>
-        </div>
-      </div>
+    <h1>Create Account</h1>
 
-      <div style="margin-top:12px;display:flex;gap:8px;justify-content:center">
-        <button type="submit" class="btn">Create account</button>
-        <a href="/login.html" style="align-self:center">Already have account</a>
-      </div>
+    <form id="registerForm">
+      <label>First Name *</label>
+      <input id="first" required>
+
+      <label>Last Name</label>
+      <input id="last">
+
+      <label>Email *</label>
+      <input id="email" type="email" required>
+
+      <label>Password *</label>
+      <input id="password1" type="password" required>
+
+      <label>Username (optional)</label>
+      <input id="usernameReg">
+
+      <label>Phone</label>
+      <input id="phone">
+
+      <label>Account Type</label>
+      <select id="accountType">
+        <option value="buyer">Buyer</option>
+        <option value="project_owner">Project Owner</option>
+        <option value="verifier">Verifier</option>
+        <option value="field_user">Field User</option>
+      </select>
+
+      <label><input type="checkbox" id="agree" required> I accept Terms & Conditions</label>
+
+      <button type="submit" class="btn">Register</button>
     </form>
+
+    <p>Already have an account? <a href="/login.html">Login</a></p>
   </main>
 
   <script type="module" src="/js/auth.js"></script>
