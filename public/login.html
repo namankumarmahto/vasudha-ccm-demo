@@ -3,38 +3,21 @@
 <head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Login — Vasudha</title>
-<style>
-body{font-family:Georgia,serif;background:#f6fbf6;color:#093014;margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
-.card{width:760px;max-width:96%;background:#fff;border-radius:16px;padding:28px;box-shadow:0 12px 36px rgba(0,0,0,0.06)}
-h2{font-size:28px;margin:0 0 8px}
-.muted{color:#6b8b74;margin-bottom:12px}
-.input{margin-bottom:12px}
-label{display:block;font-weight:700;margin-bottom:6px}
-input{padding:12px;border-radius:10px;border:1px solid #e6efe6;background:#f4faf4;width:100%}
-.btn{background:linear-gradient(#2f6b3a,#244f2d);color:#fff;padding:12px 18px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
-.links{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
-@media(max-width:560px){ .card{padding:18px} }
-</style>
+<link rel="stylesheet" href="/css/auth-pro.css">
 </head>
-<body>
-  <main class="card" role="main" aria-labelledby="ltitle">
-    <h2 id="ltitle">Welcome back</h2>
-    <div class="muted">Sign in with the email you used to register.</div>
+<body style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#eef6ee">
+  <main class="card-pro" style="width:560px;max-width:96%">
+    <h2>Sign in</h2>
+    <p style="color:#456c53">Use your registered email. Accounts must be approved by an administrator.</p>
 
-    <form id="loginForm" novalidate>
-      <div class="input">
-        <label for="username">Email</label>
-        <input id="username" name="username" type="email" required placeholder="you@example.com">
-      </div>
-
-      <div class="input">
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" required placeholder="Enter password">
-      </div>
-
-      <div class="links">
-        <a href="/user-register.html" style="color:#2f6b3a;text-decoration:none">Create account</a>
-        <button class="btn" type="submit">Sign in</button>
+    <form id="loginForm" autocomplete="on" novalidate>
+      <label>Email</label>
+      <input id="username" type="email" class="input-pro" required>
+      <label>Password</label>
+      <input id="password" type="password" class="input-pro" required>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+        <a href="/user-register.html" style="color:#2f6b3a">Create account</a>
+        <button type="submit" class="btn-pro">Sign in</button>
       </div>
     </form>
   </main>

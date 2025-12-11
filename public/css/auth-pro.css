@@ -1,0 +1,6 @@
+/* Minimal global styles for forms and buttons */
+:root{--accent:#2f6b3a;--muted:#f4faf4}
+body{font-family:Georgia,serif;color:#07250f}
+.btn-pro{background:linear-gradient(#2f6b3a,#244f2d);color:#fff;padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
+.input-pro{width:100%;padding:10px;border-radius:8px;border:1px solid #e6efe6;background:var(--muted)}
+.card-pro{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.06)}
