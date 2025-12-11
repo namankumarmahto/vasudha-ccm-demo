@@ -1,106 +1,87 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>User Registration — Vasudha</title>
-  <style>
-    :root{--accent:#2f6b3a;--muted:#f1f6f1}
-    body{font-family: Georgia, serif; background: #f8fbf8; color:#063014; margin:0; padding:24px; display:flex; align-items:center; justify-content:center; min-height:100vh}
-    .card{width:920px;max-width:96%;background:#fff;border-radius:16px;padding:24px;box-shadow:0 10px 28px rgba(3,10,7,0.06)}
-    h1{font-size:28px;margin-bottom:8px}
-    p.lead{color:#3b5a3f;margin-bottom:12px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    label{display:block;font-weight:700;margin-bottom:6px}
-    input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #e6efe6;background:var(--muted);font-size:15px}
-    .actions{display:flex;gap:12px;justify-content:center;margin-top:18px}
-    .btn{background:linear-gradient(#2f6b3a,#244f2d);color:#fff;padding:12px 28px;border-radius:12px;border:none;font-weight:700;cursor:pointer}
-    .btn.ghost{background:transparent;border:2px solid #dcdcdc;color:#333}
-    .small{font-size:13px;color:#546a56}
-    .muted{color:#6b8b74}
-    .terms-box{background:#f7faf7;border:1px solid #e6efe6;padding:12px;border-radius:10px;margin-top:10px;font-size:13px;color:#234}
-    .center{grid-column:1/-1;display:flex;gap:12px;align-items:center}
-    @media(max-width:880px){ .grid{grid-template-columns:1fr} .center{flex-direction:column} }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Create account — Vasudha</title>
+<link rel="stylesheet" href="/css/auth-forms.css">
+<style>
+/* inline fallback styles */
+body{font-family:Georgia,serif;background:#f8fbf8;color:#093014;margin:0;padding:34px;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.card{max-width:940px;width:100%;background:#fff;border-radius:14px;padding:28px;box-shadow:0 12px 44px rgba(0,0,0,0.06)}
+h1{margin:0 0 6px;font-size:28px}
+.sub{color:#496a55;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{font-weight:700;margin-bottom:6px;display:block}
+input,select{padding:12px;border-radius:10px;border:1px solid #e6efe6;background:#f5fbf5;width:100%}
+.actions{display:flex;gap:12px;justify-content:center;margin-top:18px}
+.btn{background:linear-gradient(#2f6b3a,#244f2d);color:#fff;padding:12px 20px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+.note{font-size:13px;color:#5b7a64;margin-top:12px;text-align:center}
+small.terms{display:block;margin-top:10px;color:#6e8a70}
+@media(max-width:880px){ .grid{grid-template-columns:1fr} }
+</style>
 </head>
 <body>
-  <main class="card" role="main" aria-labelledby="regTitle">
-    <h1 id="regTitle">Create your Vasudha account</h1>
-    <p class="lead">Sign up to manage projects, buy credits and participate in MRV workflows.</p>
+  <main class="card" role="main" aria-labelledby="rtitle">
+    <h1 id="rtitle">Create your account</h1>
+    <div class="sub">Register to use Vasudha — create projects, buy & verify carbon credits.</div>
 
-    <form id="registerForm" autocomplete="on" novalidate>
+    <form id="registerForm" novalidate>
       <div class="grid">
         <div>
-          <label for="first">First Name *</label>
-          <input id="first" name="first" type="text" required placeholder="First name">
+          <label for="first">First name *</label>
+          <input id="first" name="first" required placeholder="First name">
         </div>
-
         <div>
-          <label for="last">Last Name</label>
-          <input id="last" name="last" type="text" placeholder="Last name">
+          <label for="last">Last name</label>
+          <input id="last" name="last" placeholder="Last name">
         </div>
 
         <div>
           <label for="email">Email *</label>
           <input id="email" name="email" type="email" required placeholder="you@example.com">
         </div>
-
         <div>
           <label for="usernameReg">Username (optional)</label>
-          <input id="usernameReg" name="usernameReg" type="text" placeholder="username (for display)">
+          <input id="usernameReg" name="usernameReg" placeholder="Preferred username">
         </div>
 
         <div>
           <label for="password1">Password *</label>
-          <input id="password1" name="password1" type="password" required placeholder="Choose a strong password">
+          <input id="password1" name="password1" type="password" required placeholder="At least 8 characters">
         </div>
-
         <div>
           <label for="phone">Phone</label>
           <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210">
         </div>
 
-        <div class="center">
-          <div style="flex:1">
-            <label for="accountType">Account Type</label>
-            <select id="accountType" name="accountType">
-              <option value="buyer">Buyer</option>
-              <option value="project_owner">Project Owner</option>
-              <option value="verifier">Verifier</option>
-              <option value="field_user">Field User</option>
-              <option value="admin">Admin</option>
-            </select>
-            <div class="small muted">Choose your role. Admin accounts require manual approval.</div>
-          </div>
+        <div style="grid-column:1/-1">
+          <label for="accountType">Account type</label>
+          <select id="accountType" name="accountType">
+            <option value="buyer">Buyer</option>
+            <option value="project_owner">Project Owner</option>
+            <option value="verifier">Verifier</option>
+            <option value="field_user">Field User</option>
+          </select>
+          <small class="terms">Admin accounts are not allowed to self-register. Contact administrator for admin access.</small>
         </div>
-
       </div>
 
       <div style="margin-top:12px">
-        <div class="terms-box">
-          <strong>Terms & Conditions (summary)</strong>
-          <ul>
-            <li>By registering you confirm that information provided is accurate.</li>
-            <li>Accounts are subject to manual admin approval before the first login.</li>
-            <li>Accounts may be blocked for misuse; blocked users cannot login.</li>
-            <li>You agree to our data usage and MRV policies.</li>
-          </ul>
-        </div>
-
-        <label style="display:flex;align-items:center;gap:8px;font-weight:600;margin-top:8px">
-          <input type="checkbox" id="terms" required> I accept the Terms & Conditions
+        <label style="display:flex;align-items:center;gap:8px;font-weight:600">
+          <input type="checkbox" id="agree" required> I accept the <a href="/terms.html">Terms & Conditions</a>.
         </label>
       </div>
 
       <div class="actions">
-        <button type="submit" class="btn">Create account</button>
-        <a href="/login.html" class="btn ghost" role="button">Already have an account</a>
+        <button class="btn" type="submit">Create account</button>
+        <a href="/login.html" class="btn" style="background:#fff;color:#244f2d;border:2px solid #d6e6d6;text-decoration:none;display:inline-flex;align-items:center;justify-content:center">Already have account</a>
       </div>
 
-      <p class="small muted" style="text-align:center;margin-top:12px">Note: after registration your account will be pending admin approval and you will not be able to log in until approved.</p>
+      <div class="note">By registering you agree to our Terms & Conditions. <small>Certain accounts (admin, disposable emails, offensive usernames) are not permitted.</small></div>
     </form>
   </main>
 
-  <script type="module" src="/js/auth.js"></script>
+<script type="module" src="/js/auth.js"></script>
 </body>
 </html>
